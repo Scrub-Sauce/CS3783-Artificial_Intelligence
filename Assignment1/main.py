@@ -1,2 +1,10 @@
+from Map import Map
+
 if __name__ == "__main__":
-    print("Started...")
+    basePath = "files/"
+
+    map = Map()
+
+    map.load_map(basePath)
+
+    print(map)

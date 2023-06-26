@@ -8,7 +8,7 @@ class Route:
         return self.__cities
 
     def get_distance(self):
-        self.get_distance()
+        return self.__distance
 
     # Mutators
     def set_cities(self, cities):
@@ -20,4 +20,5 @@ class Route:
     # String Override
     def __str__(self):
         cities = self.get_cities()
-        ret = f"""{cities[0]}, {cities[1]}, {self.get_distance()}"""
+        ret = f"   {cities[0].get_city_name()}, {cities[1].get_city_name()}, {self.get_distance()}"
+        return ret

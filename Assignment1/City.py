@@ -1,8 +1,8 @@
 class City:
     def __init__(self, city_name, latitude, longitude):
         self.__city_name = city_name
-        self.__latitude = latitude
-        self.__longitude = longitude
+        self.__latitude = float(latitude)
+        self.__longitude = float(longitude)
         self.__routes = []
 
     # Accessors
@@ -32,6 +32,12 @@ class City:
         return self.__routes
 
     # Helper Methods
+    def add_route(self, route):
+        self.get_routes().append(route)
+
+    def remove_route(self, route):
+        self.get_routes().remove(route)
+
     def check_lat_pole(self):
         latitude = self.get_latitude()
         if latitude < 0:
@@ -48,7 +54,7 @@ class City:
 
     # String Override
     def __str__(self):
-        ret = f"""{self.get_city_name()}, {self.check_lat_pole()}, {self.check_long_pole()}\nRoutes:"""
+        ret = f"""{self.get_city_name()}, {self.check_lat_pole()}, {self.check_long_pole()}\nRoutes:\n"""
         for route in self.get_routes():
             ret += f"{route}\n"
         return ret
