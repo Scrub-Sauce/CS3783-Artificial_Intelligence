@@ -1,7 +1,7 @@
 class Route:
     def __init__(self, city1, city2, distance):
         self.__cities = [city1, city2]
-        self.__distance = distance
+        self.__distance = float(distance)
 
     # Accessors
     def get_cities(self):
@@ -16,6 +16,13 @@ class Route:
 
     def set_distance(self, distance):
         self.__distance = distance
+
+    # Helper Methods
+    def get_destination(self, current_city):
+        if current_city == self.get_cities()[0]:
+            return self.get_cities()[1]
+        else:
+            return self.get_cities()[0]
 
     # String Override
     def __str__(self):
